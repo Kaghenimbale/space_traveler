@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { RingLoader } from 'react-spinners';
 import { fetchMission } from '../../features/Mission/missionSlice';
 import './mission.css';
 
 const Mission = () => {
-  const { missionItems } = useSelector((state) => state.mission);
+  const { missionItems, isLoading } = useSelector((state) => state.mission);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -12,6 +13,7 @@ const Mission = () => {
   }, [dispatch]);
 
   fetchMission();
+
   return (
     <div className="mission-content">
       <table className="table-mission">
@@ -23,20 +25,26 @@ const Mission = () => {
           </tr>
         </thead>
         <tbody className="table-body">
-          {missionItems.map((item) => (
-            <tr className="table-item" key={item.mission_id}>
-              <td className="title">{item.mission_name}</td>
-              <td className="description">{item.description}</td>
-              <td className="status">
-                <p>NOT A MEMBER</p>
-              </td>
-              <td>
-                <button className="table-btn" type="button">
-                  Join Mission
-                </button>
-              </td>
-            </tr>
-          ))}
+          {isLoading ? (
+            <div className="loader">
+              <RingLoader />
+            </div>
+          ) : (
+            missionItems.map((item) => (
+              <tr className="table-item" key={item.mission_id}>
+                <td className="title">{item.mission_name}</td>
+                <td className="description">{item.description}</td>
+                <td className="status">
+                  <p>NOT A MEMBER</p>
+                </td>
+                <td>
+                  <button className="table-btn" type="button">
+                    Join Mission
+                  </button>
+                </td>
+              </tr>
+            ))
+          )}
         </tbody>
       </table>
     </div>
