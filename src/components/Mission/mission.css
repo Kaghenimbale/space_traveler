@@ -1,0 +1,30 @@
+.mission-content {
+  padding: 1rem 2rem;
+}
+
+.table-mission {
+  border: 1px solid darkgray;
+  border-spacing: 0;
+}
+
+.mission th {
+  border: 0.3px solid lightgray;
+  padding: 1rem 2rem;
+}
+
+tr td {
+  border: 0.3px solid lightgray;
+  padding: 1rem 2rem;
+}
+
+.table-item:nth-child(odd) {
+  background-color: whitesmoke;
+}
+
+.table-btn {
+  white-space: nowrap;
+}
+
+.status {
+  white-space: nowrap;
+}
