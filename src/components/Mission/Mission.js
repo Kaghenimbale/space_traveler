@@ -27,7 +27,9 @@ const Mission = () => {
             <tr className="table-item" key={item.mission_id}>
               <td className="title">{item.mission_name}</td>
               <td className="description">{item.description}</td>
-              <td className="status">NOT A MEMBER</td>
+              <td className="status">
+                <p>NOT A MEMBER</p>
+              </td>
               <td>
                 <button className="table-btn" type="button">
                   Join Mission

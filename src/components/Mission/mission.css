@@ -10,11 +10,17 @@
 .mission th {
   border: 0.3px solid lightgray;
   padding: 1rem 2rem;
+  font-weight: bolder;
 }
 
 tr td {
   border: 0.3px solid lightgray;
   padding: 1rem 2rem;
+}
+
+.title {
+  font-weight: bolder;
+  white-space: nowrap;
 }
 
 .table-item:nth-child(odd) {
@@ -23,8 +29,12 @@ tr td {
 
 .table-btn {
   white-space: nowrap;
+  padding: 0.3rem 0.6rem;
 }
 
-.status {
+.status p {
   white-space: nowrap;
+  background: darkgray;
+  color: white;
+  padding: 0.3rem;
 }
