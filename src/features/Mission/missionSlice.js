@@ -9,7 +9,7 @@ const initialState = {
 const url = 'https://api.spacexdata.com/v3/missions';
 
 export const fetchMission = createAsyncThunk(
-  'rockect/fecthMission',
+  'mission/fecthMission',
   async () => {
     try {
       const response = await axios.get(url);
@@ -23,6 +23,21 @@ export const fetchMission = createAsyncThunk(
 const missionSlice = createSlice({
   name: 'mission',
   initialState,
+  reducers: {
+    reserveMission: (state, action) => {
+      const { reserved, id } = action.payload;
+      const newState = state.missionItems.map((item) => {
+        if (item.mission_id !== id) {
+          return item;
+        }
+        return { ...item, reserved };
+      });
+      return {
+        ...state,
+        missionItems: [...newState],
+      };
+    },
+  },
   extraReducers(builder) {
     builder
       .addCase(fetchMission.pending, (state) => ({
@@ -40,5 +55,7 @@ const missionSlice = createSlice({
       }));
   },
 });
+
+export const { reserveMission } = missionSlice.actions;
 
 export default missionSlice.reducer;

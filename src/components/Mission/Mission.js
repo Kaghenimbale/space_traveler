@@ -1,10 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RingLoader } from 'react-spinners';
-import { fetchMission } from '../../features/Mission/missionSlice';
+import {
+  fetchMission,
+  reserveMission,
+} from '../../features/Mission/missionSlice';
 import './mission.css';
 
 const Mission = () => {
+  const [reserved, setReserved] = useState(true);
   const { missionItems, isLoading } = useSelector((state) => state.mission);
   const dispatch = useDispatch();
 
@@ -12,7 +16,10 @@ const Mission = () => {
     dispatch(fetchMission());
   }, [dispatch]);
 
-  fetchMission();
+  const handleReserved = (id) => {
+    setReserved(!reserved);
+    dispatch(reserveMission({ reserved, id }));
+  };
 
   return (
     <div className="mission-content">
@@ -35,11 +42,15 @@ const Mission = () => {
                 <td className="title">{item.mission_name}</td>
                 <td className="description">{item.description}</td>
                 <td className="status">
-                  <p>NOT A MEMBER</p>
+                  <p>{!item.reserved ? 'NOT A MEMBER' : 'Active Member'}</p>
                 </td>
                 <td>
-                  <button className="table-btn" type="button">
-                    Join Mission
+                  <button
+                    className="table-btn"
+                    type="button"
+                    onClick={() => handleReserved(item.mission_id)}
+                  >
+                    {!item.reserved ? 'Join Mission' : 'Leave Mission'}
                   </button>
                 </td>
               </tr>

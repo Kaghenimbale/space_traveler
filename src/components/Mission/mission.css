@@ -1,6 +1,5 @@
 .mission-content {
-  padding: 1rem 0;
-  width: 70vw;
+  padding: 1rem 2rem;
   margin: 0 auto;
 }
 
@@ -29,7 +28,12 @@ tr td {
 
 .title {
   font-weight: bolder;
+  font-size: 1.5rem;
   white-space: nowrap;
+}
+
+.description {
+  font-size: 1.4rem;
 }
 
 .table-item:nth-child(odd) {
@@ -39,11 +43,17 @@ tr td {
 .table-btn {
   white-space: nowrap;
   padding: 0.3rem 0.6rem;
+  font-size: 1.3rem;
 }
 
 .status p {
   white-space: nowrap;
-  background: darkgray;
+  background: rgb(118, 118, 118);
   color: white;
   padding: 0.3rem;
+  font-size: 1.3rem;
+}
+
+.statusActive {
+  background: rgb(32, 178, 142);
 }
