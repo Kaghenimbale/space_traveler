@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { RingLoader } from 'react-spinners';
+import { MoonLoader } from 'react-spinners';
 import {
   fetchMission,
   reserveMission,
@@ -34,7 +34,7 @@ const Mission = () => {
         <tbody className="table-body">
           {isLoading ? (
             <div className="loader">
-              <RingLoader />
+              <MoonLoader />
             </div>
           ) : (
             missionItems.map((item) => (

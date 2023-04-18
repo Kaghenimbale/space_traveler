@@ -4,6 +4,7 @@ import axios from 'axios';
 const initialState = {
   missionItems: [],
   isLoading: false,
+  error: null,
 };
 
 const url = 'https://api.spacexdata.com/v3/missions';
@@ -52,6 +53,7 @@ const missionSlice = createSlice({
       .addCase(fetchMission.rejected, (state) => ({
         ...state,
         isLoading: false,
+        missionItems: [],
       }));
   },
 });
