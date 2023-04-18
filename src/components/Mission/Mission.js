@@ -42,11 +42,17 @@ const Mission = () => {
                 <td className="title">{item.mission_name}</td>
                 <td className="description">{item.description}</td>
                 <td className="status">
-                  <p>{!item.reserved ? 'NOT A MEMBER' : 'Active Member'}</p>
+                  <p
+                    className={
+                      !item.reserved ? 'statusNotActive' : 'statusActive'
+                    }
+                  >
+                    {!item.reserved ? 'NOT A MEMBER' : 'Active Member'}
+                  </p>
                 </td>
                 <td>
                   <button
-                    className="table-btn"
+                    className={!item.reserved ? 'table-btn' : 'tableBtnActive'}
                     type="button"
                     onClick={() => handleReserved(item.mission_id)}
                   >

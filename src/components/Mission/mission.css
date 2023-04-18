@@ -43,17 +43,29 @@ tr td {
 .table-btn {
   white-space: nowrap;
   padding: 0.3rem 0.6rem;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
 }
 
-.status p {
+.tableBtnActive {
+  white-space: nowrap;
+  padding: 0.3rem 0.6rem;
+  font-size: 1.2rem;
+  color: red;
+  border: 1px solid red;
+}
+
+.statusNotActive {
   white-space: nowrap;
   background: rgb(118, 118, 118);
   color: white;
   padding: 0.3rem;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
 }
 
 .statusActive {
-  background: rgb(32, 178, 142);
+  white-space: nowrap;
+  background: lightseagreen;
+  color: white;
+  padding: 0.3rem;
+  font-size: 1.2rem;
 }
