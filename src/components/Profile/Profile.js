@@ -8,7 +8,7 @@ const Profile = () => {
     <div className="content">
       <div className="mission">
         <h2>My Missions</h2>
-        <ul>
+        <ul className="progress-mission">
           {missionItems.map(
             (item) => item.reserved && (
             <li key={item.mission_id}>{item.mission_name}</li>
