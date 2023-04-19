@@ -9,14 +9,18 @@ import './mission.css';
 
 const Mission = () => {
   const [reserved, setReserved] = useState(true);
-  const { missionItems, isLoading, error } = useSelector(
+  const {
+    missionItems, isLoading, error, isFetched,
+  } = useSelector(
     (state) => state.mission,
   );
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchMission());
-  }, [dispatch]);
+    if (!isFetched) {
+      dispatch(fetchMission());
+    }
+  }, [dispatch, isFetched]);
 
   const handleReserved = (id) => {
     setReserved(!reserved);

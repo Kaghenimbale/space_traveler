@@ -5,6 +5,7 @@ const initialState = {
   missionItems: [],
   isLoading: false,
   error: null,
+  isFetched: false,
 };
 
 const url = 'https://api.spacexdata.com/v3/missions';
@@ -48,6 +49,7 @@ const missionSlice = createSlice({
       .addCase(fetchMission.fulfilled, (state, action) => ({
         ...state,
         isLoading: false,
+        isFetched: true,
         missionItems: action.payload,
       }))
       .addCase(fetchMission.rejected, (state, action) => ({
