@@ -27,12 +27,12 @@ const missionSlice = createSlice({
   initialState,
   reducers: {
     reserveMission: (state, action) => {
-      const { reserved, id } = action.payload;
+      const { id } = action.payload;
       const newState = state.missionItems.map((item) => {
         if (item.mission_id !== id) {
           return item;
         }
-        return { ...item, reserved };
+        return { ...item, reserved: !item.reserved };
       });
       return {
         ...state,

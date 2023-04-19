@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { MoonLoader } from 'react-spinners';
 import {
@@ -8,7 +8,6 @@ import {
 import './mission.css';
 
 const Mission = () => {
-  const [reserved, setReserved] = useState(true);
   const {
     missionItems, isLoading, error, isFetched,
   } = useSelector(
@@ -23,8 +22,7 @@ const Mission = () => {
   }, [dispatch, isFetched]);
 
   const handleReserved = (id) => {
-    setReserved(!reserved);
-    dispatch(reserveMission({ reserved, id }));
+    dispatch(reserveMission({ id }));
   };
 
   if (isLoading) {
