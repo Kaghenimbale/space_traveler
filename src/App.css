@@ -5,6 +5,7 @@
 
 button {
   padding: 8px;
+  cursor: pointer;
 }
 
 .nav-bar {
@@ -29,8 +30,16 @@ button {
 }
 
 .rocket-info h2 {
-  width: 80px;
   margin-bottom: 10px;
   color: #000;
   font-weight: 700;
+}
+
+.rocket-badge {
+  background-color: #4ec1ba;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: smaller;
+  padding: 4px;
 }
