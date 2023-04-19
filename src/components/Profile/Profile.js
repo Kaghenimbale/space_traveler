@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux';
 
 const Profile = () => {
   const { missionItems } = useSelector((state) => state.mission);
-  console.log(missionItems);
   return (
     <div className="content">
       <div className="mission">
