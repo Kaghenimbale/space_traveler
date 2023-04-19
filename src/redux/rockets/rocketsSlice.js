@@ -1,42 +1,49 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
+const initialState = {
+  rockets: [],
+  status: 'idle',
+  error: null,
+};
+
 export const fetchRockets = createAsyncThunk(
   'rockets/fetchRockets',
   async () => {
-    const response = await axios.get('https://api.spacexdata.com/v4/rockets');
-    return response.data;
-  }
-);
-
-export const reserveRocket = createAsyncThunk(
-  'rockets/reserveRocket',
-  async (rocketId) => {
-    const response = await axios.patch(`https://api.spacexdata.com/v4/rockets/${rocketId}`, {
-      reserved: true
-    });
-    return response.data;
-  }
-);
-
-export const cancelRocket = createAsyncThunk(
-  'rockets/cancelRocket',
-  async (rocketId) => {
-    const response = await axios.patch(`https://api.spacexdata.com/v4/rockets/${rocketId}`, {
-      reserved: false
-    });
-    return response.data;
-  }
+    try {
+      const response = await axios.get('https://api.spacexdata.com/v4/rockets');
+      return response.data;
+    } catch (error) {
+      return error;
+    }
+  },
 );
 
 export const rocketsSlice = createSlice({
   name: 'rockets',
-  initialState: {
-    rockets: [],
-    status: 'idle',
-    error: null
+  initialState,
+  reducers: {
+    reserveRocket(state, action) {
+      const newRockets = state.rockets.map((rocket) => {
+        if (rocket.id !== action.payload) return rocket;
+        return { ...rocket, reserved: true };
+      });
+      return {
+        ...state,
+        rockets: newRockets
+      };
+    },
+    cancelRocket(state, action) {
+      const newRockets = state.rockets.map((rocket) => {
+        if (rocket.id !== action.payload) return rocket;
+        return { ...rocket, reserved: false };
+      });
+      return {
+        ...state,
+        rockets: newRockets,
+      };
+    },
   },
-  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchRockets.pending, (state) => {
@@ -48,19 +55,8 @@ export const rocketsSlice = createSlice({
       .addCase(fetchRockets.rejected, (state, action) => {
         return { ...state, status: 'failed', error: action.error.message };
       })
-      .addCase(reserveRocket.fulfilled, (state, action) => {
-        const index = state.rockets.findIndex((rocket) => rocket.id === action.payload.id);
-        const newRockets = [...state.rockets]
-        newRockets[index] = action.payload;
-        return { ...state, rockets: newRockets };
-      })
-      .addCase(cancelRocket.fulfilled, (state, action) => {
-        const index = state.rockets.findIndex((rocket) => rocket.id === action.payload.id);
-        const newRockets = [...state.rockets];
-        newRockets[index] = action.payload;
-        return { ...state, rockets:newRockets };
-      });
   }
 });
 
 export default rocketsSlice.reducer;
+export const { reserveRocket, cancelRocket } = rocketsSlice.actions;
