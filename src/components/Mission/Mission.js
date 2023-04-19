@@ -9,7 +9,9 @@ import './mission.css';
 
 const Mission = () => {
   const [reserved, setReserved] = useState(true);
-  const { missionItems, isLoading } = useSelector((state) => state.mission);
+  const { missionItems, isLoading, error } = useSelector(
+    (state) => state.mission,
+  );
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -20,6 +22,18 @@ const Mission = () => {
     setReserved(!reserved);
     dispatch(reserveMission({ reserved, id }));
   };
+
+  if (isLoading) {
+    return (
+      <div className="loader">
+        <MoonLoader />
+      </div>
+    );
+  }
+
+  if (error) {
+    return <h1>Something went Wrong!</h1>;
+  }
 
   return (
     <div className="mission-content">
@@ -32,36 +46,30 @@ const Mission = () => {
           </tr>
         </thead>
         <tbody className="table-body">
-          {isLoading ? (
-            <div className="loader">
-              <MoonLoader />
-            </div>
-          ) : (
-            missionItems.map((item) => (
-              <tr className="table-item" key={item.mission_id}>
-                <td className="title">{item.mission_name}</td>
-                <td className="description">{item.description}</td>
-                <td className="status">
-                  <p
-                    className={
-                      !item.reserved ? 'statusNotActive' : 'statusActive'
-                    }
-                  >
-                    {!item.reserved ? 'NOT A MEMBER' : 'Active Member'}
-                  </p>
-                </td>
-                <td>
-                  <button
-                    className={!item.reserved ? 'table-btn' : 'tableBtnActive'}
-                    type="button"
-                    onClick={() => handleReserved(item.mission_id)}
-                  >
-                    {!item.reserved ? 'Join Mission' : 'Leave Mission'}
-                  </button>
-                </td>
-              </tr>
-            ))
-          )}
+          {missionItems.map((item) => (
+            <tr className="table-item" key={item.mission_id}>
+              <td className="title">{item.mission_name}</td>
+              <td className="description">{item.description}</td>
+              <td className="status">
+                <p
+                  className={
+                    !item.reserved ? 'statusNotActive' : 'statusActive'
+                  }
+                >
+                  {!item.reserved ? 'NOT A MEMBER' : 'Active Member'}
+                </p>
+              </td>
+              <td>
+                <button
+                  className={!item.reserved ? 'table-btn' : 'tableBtnActive'}
+                  type="button"
+                  onClick={() => handleReserved(item.mission_id)}
+                >
+                  {!item.reserved ? 'Join Mission' : 'Leave Mission'}
+                </button>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>

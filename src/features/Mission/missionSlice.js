@@ -50,10 +50,11 @@ const missionSlice = createSlice({
         isLoading: false,
         missionItems: action.payload,
       }))
-      .addCase(fetchMission.rejected, (state) => ({
+      .addCase(fetchMission.rejected, (state, action) => ({
         ...state,
         isLoading: false,
         missionItems: [],
+        error: action.payload,
       }));
   },
 });
