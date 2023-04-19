@@ -6,7 +6,7 @@ import {
   Routes,
   Route,
 } from 'react-router-dom';
-import Rockets from './components/Rockets';
+import Rockets from './components/Rocket/Rockets';
 import Navbar from './components/Navbar';
 
 function App() {

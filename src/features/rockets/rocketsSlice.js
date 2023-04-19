@@ -30,7 +30,7 @@ export const rocketsSlice = createSlice({
       });
       return {
         ...state,
-        rockets: newRockets
+        rockets: newRockets,
       };
     },
     cancelRocket(state, action) {
@@ -46,16 +46,10 @@ export const rocketsSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchRockets.pending, (state) => {
-        return { ...state, status: 'loading' };
-      })
-      .addCase(fetchRockets.fulfilled, (state, action) => {
-        return { ...state, status: 'succeeded', rockets: action.payload };
-      })
-      .addCase(fetchRockets.rejected, (state, action) => {
-        return { ...state, status: 'failed', error: action.error.message };
-      })
-  }
+      .addCase(fetchRockets.pending, (state) => ({ ...state, status: 'loading' }))
+      .addCase(fetchRockets.fulfilled, (state, action) => ({ ...state, status: 'succeeded', rockets: action.payload }))
+      .addCase(fetchRockets.rejected, (state, action) => ({ ...state, status: 'failed', error: action.error.message }));
+  },
 });
 
 export default rocketsSlice.reducer;

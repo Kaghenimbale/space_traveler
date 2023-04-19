@@ -1,7 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { reserveRocket, cancelRocket } from '../redux/rockets/rocketsSlice';
+import { reserveRocket, cancelRocket } from '../../features/rockets/rocketsSlice';
 
 export default function RocketList({ rocket = {} }) {
   const dispatch = useDispatch();
@@ -13,7 +13,6 @@ export default function RocketList({ rocket = {} }) {
   const handleCancelReservationButtonClick = () => {
     dispatch(cancelRocket(rocket.id));
   };
-  console.log(rocket);
 
   return (
     <div className="rocket-list-item">
@@ -26,7 +25,7 @@ export default function RocketList({ rocket = {} }) {
           {rocket.description}
         </p>
         {rocket.reserved && <button type="button" onClick={handleCancelReservationButtonClick}>Cancel reservation</button>}
-        {!rocket.reserved && <button onClick={handleReserveButtonClick}>Reserve rocket</button>}
+        {!rocket.reserved && <button type="button" onClick={handleReserveButtonClick}>Reserve rocket</button>}
       </div>
     </div>
   );
