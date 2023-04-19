@@ -1,0 +1,71 @@
+.mission-content {
+  padding: 1rem 4rem;
+  margin: 0 auto;
+}
+
+.table-mission {
+  border: 1px solid darkgray;
+  border-spacing: 0;
+}
+
+.loader {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mission th {
+  border: 0.3px solid lightgray;
+  padding: 1rem 2rem;
+  font-weight: bolder;
+}
+
+tr td {
+  border: 0.3px solid lightgray;
+  padding: 1rem 2rem;
+}
+
+.title {
+  font-weight: bolder;
+  font-size: 1.5rem;
+  white-space: nowrap;
+}
+
+.description {
+  font-size: 1.2rem;
+}
+
+.table-item:nth-child(odd) {
+  background-color: whitesmoke;
+}
+
+.table-btn {
+  white-space: nowrap;
+  padding: 0.3rem 0.6rem;
+  font-size: 1.2rem;
+}
+
+.tableBtnActive {
+  white-space: nowrap;
+  padding: 0.3rem 0.6rem;
+  font-size: 1.2rem;
+  color: red;
+  border: 1px solid red;
+}
+
+.statusNotActive {
+  white-space: nowrap;
+  background: rgb(118, 118, 118);
+  color: white;
+  padding: 0.3rem;
+  font-size: 1.2rem;
+}
+
+.statusActive {
+  white-space: nowrap;
+  background: lightseagreen;
+  color: white;
+  padding: 0.3rem;
+  font-size: 1.2rem;
+}

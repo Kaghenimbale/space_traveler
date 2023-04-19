@@ -1,0 +1,26 @@
+.content {
+  width: 90vw;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.progress-mission {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.mission h2 {
+  text-align: center;
+}
+
+.progress-mission li {
+  list-style: none;
+  background: whitesmoke;
+  font-weight: bolder;
+  padding: 2rem;
+  width: 200px;
+}
