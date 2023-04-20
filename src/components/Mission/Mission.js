@@ -13,6 +13,7 @@ const Mission = () => {
   } = useSelector(
     (state) => state.mission,
   );
+
   const dispatch = useDispatch();
 
   useEffect(() => {

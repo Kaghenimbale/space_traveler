@@ -1,0 +1,126 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render UI Render mission lists 1`] = `
+<div>
+  <div
+    class="mission-content"
+  >
+    <table
+      class="table-mission"
+    >
+      <thead>
+        <tr
+          class="mission"
+        >
+          <th>
+            Mission
+          </th>
+          <th>
+            Description
+          </th>
+          <th>
+            Status
+          </th>
+        </tr>
+      </thead>
+      <tbody
+        class="table-body"
+      >
+        <tr
+          class="table-item"
+        >
+          <td
+            class="title"
+          >
+            Go to Mars
+          </td>
+          <td
+            class="description"
+          >
+            Mars is a great planet
+          </td>
+          <td
+            class="status"
+          >
+            <p
+              class="statusNotActive"
+            >
+              NOT A MEMBER
+            </p>
+          </td>
+          <td>
+            <button
+              class="table-btn"
+              type="button"
+            >
+              Join Mission
+            </button>
+          </td>
+        </tr>
+        <tr
+          class="table-item"
+        >
+          <td
+            class="title"
+          >
+            Go to Jupiter
+          </td>
+          <td
+            class="description"
+          >
+            Jupiter is a great planet
+          </td>
+          <td
+            class="status"
+          >
+            <p
+              class="statusNotActive"
+            >
+              NOT A MEMBER
+            </p>
+          </td>
+          <td>
+            <button
+              class="table-btn"
+              type="button"
+            >
+              Join Mission
+            </button>
+          </td>
+        </tr>
+        <tr
+          class="table-item"
+        >
+          <td
+            class="title"
+          >
+            Go to Saturn
+          </td>
+          <td
+            class="description"
+          >
+            Saturn is a great planet
+          </td>
+          <td
+            class="status"
+          >
+            <p
+              class="statusNotActive"
+            >
+              NOT A MEMBER
+            </p>
+          </td>
+          <td>
+            <button
+              class="table-btn"
+              type="button"
+            >
+              Join Mission
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
