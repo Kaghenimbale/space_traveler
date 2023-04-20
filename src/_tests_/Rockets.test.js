@@ -1,7 +1,7 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import confingureMockstore from 'redux-mock-store'
+import confingureMockstore from 'redux-mock-store';
 import Rockets from '../components/Rocket/Rockets';
 import '@testing-library/jest-dom';
 import { reserveRocket } from '../features/rockets/rocketsSlice';
@@ -28,7 +28,7 @@ describe('Rockets component', () => {
             description: 'A rocket developed by United Launch Alliance',
             images: '#',
             reserved: false,
-          }
+          },
         ],
         isFetched: true,
       },
@@ -39,15 +39,15 @@ describe('Rockets component', () => {
     render(
       <Provider store={store}>
         <Rockets />
-      </Provider>
+      </Provider>,
     );
-  
+
     const heading = screen.getByRole('heading', { name: /rockets/i });
     expect(heading).toBeInTheDocument();
-  
+
     const rocketNames = screen.getAllByRole('heading', { level: 2 });
     expect(rocketNames.length).toBe(2);
-  
+
     const rocketImages = screen.getAllByRole('img');
     expect(rocketImages.length).toBe(2);
   });
@@ -56,8 +56,8 @@ describe('Rockets component', () => {
     const reservebtn = render(
       <Provider store={store}>
         <Rockets />
-      </Provider>
+      </Provider>,
     );
-    expect(reservebtn).toMatchSnapshot(); 
-  })
+    expect(reservebtn).toMatchSnapshot();
+  });
 });
