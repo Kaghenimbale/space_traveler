@@ -24,8 +24,8 @@ export default function RocketList({ rocket = {} }) {
           {' '}
           {rocket.description}
         </p>
-        {rocket.reserved && <button type="button" onClick={handleCancelReservationButtonClick}>Cancel reservation</button>}
-        {!rocket.reserved && <button type="button" onClick={handleReserveButtonClick}>Reserve rocket</button>}
+        {rocket.reserved && <button className="cancel-btn" type="button" onClick={handleCancelReservationButtonClick}>Cancel reservation</button>}
+        {!rocket.reserved && <button className="rocketreserved-btn" type="button" onClick={handleReserveButtonClick}>Reserve rocket</button>}
       </div>
     </div>
   );

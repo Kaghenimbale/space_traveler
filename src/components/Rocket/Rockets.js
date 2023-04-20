@@ -5,11 +5,13 @@ import { fetchRockets } from '../../features/rockets/rocketsSlice';
 
 const Rockets = () => {
   const dispatch = useDispatch();
-  const rockets = useSelector((state) => state.rockets.rockets);
+  const { rockets, isFetched } = useSelector((state) => state.rockets);
 
   useEffect(() => {
-    dispatch(fetchRockets());
-  }, [dispatch]);
+    if (!isFetched) {
+      dispatch(fetchRockets());
+    }
+  }, [dispatch, isFetched]);
 
   return (
     <div>

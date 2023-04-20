@@ -4,6 +4,7 @@ import axios from 'axios';
 const initialState = {
   rockets: [],
   status: 'idle',
+  isFetched: false,
   error: null,
 };
 
@@ -47,7 +48,9 @@ export const rocketsSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchRockets.pending, (state) => ({ ...state, status: 'loading' }))
-      .addCase(fetchRockets.fulfilled, (state, action) => ({ ...state, status: 'succeeded', rockets: action.payload }))
+      .addCase(fetchRockets.fulfilled, (state, action) => ({
+        ...state, status: 'succeeded', rockets: action.payload, isFetched: true,
+      }))
       .addCase(fetchRockets.rejected, (state, action) => ({ ...state, status: 'failed', error: action.error.message }));
   },
 });
