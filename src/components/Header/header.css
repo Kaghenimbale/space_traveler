@@ -1,0 +1,38 @@
+.navbar {
+  background: whitesmoke;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 2rem;
+  box-shadow: 0 0 10px darkgray;
+}
+
+.logo-content {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.logo-content p {
+  font-size: 1.5rem;
+  font-weight: bolder;
+}
+
+.logo {
+  width: 100px;
+}
+
+.active {
+  font-weight: bolder;
+}
+
+.logo img {
+  width: 100%;
+}
+
+.navlink {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  font-size: 1.5rem;
+}
