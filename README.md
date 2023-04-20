@@ -50,7 +50,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-This project has not been deployed
+[Live Demo](https://moonlit-gumdrop-1fd5a8.netlify.app)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
