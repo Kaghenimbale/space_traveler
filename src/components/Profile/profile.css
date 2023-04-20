@@ -3,21 +3,19 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  align-items: center;
   justify-content: space-between;
+  margin-top: 15px;
 }
 
-.progress-mission {
+.progress-mission,
+.progress-rocket {
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
 
-.mission h2 {
-  text-align: center;
-}
-
-.progress-mission li {
+.progress-mission li,
+.item {
   list-style: none;
   background: whitesmoke;
   font-weight: bolder;
