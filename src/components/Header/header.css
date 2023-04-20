@@ -22,8 +22,13 @@
   width: 100px;
 }
 
+a {
+  text-decoration: none;
+}
+
 .active {
-  font-weight: bolder;
+  font-weight: 900;
+  text-decoration: underline;
 }
 
 .logo img {
